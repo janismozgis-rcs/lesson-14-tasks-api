@@ -13,6 +13,12 @@ server.use(bodyParser.json());
 
 server.use('/tasks', taskRoutes);
 
+
+// GET /labels - returns list of all the labels
+// POST /labels - create a new label. {"title": "foo", "color": "#ff0000"}
+// PUT /labels/{id} - update the label {"title": "foo", "color": "#ff0000"}
+// DELETE /labels/{id} - deletes a label
+
 mongoose.connect(
     process.env.MONGOOSE_CONNECTION_URL, 
     {useNewUrlParser: true, useUnifiedTopology: true},
@@ -27,3 +33,4 @@ mongoose.connect(
 server.listen(process.env.PORT, () => {
     console.log(`Server is up and running on port ${process.env.PORT}`);
 });
+
