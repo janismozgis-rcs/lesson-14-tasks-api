@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import taskRoutes from './routes/tasks.js';
 import labelRoutes from './routes/labels.js';
@@ -10,6 +11,7 @@ dotenv.config();
 
 const server = express();
 
+server.use(cors());
 server.use(bodyParser.json());
 
 server.use('/tasks', taskRoutes);
